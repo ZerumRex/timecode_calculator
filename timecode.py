@@ -115,7 +115,13 @@ def format_tc(timecode, drop):
     if(sign == -1):
         tc_string = '-' + tc_string
 
-    print(tc_string)
+    return(tc_string)
+
+# Removes timecode formating and returns an integer for timecode functions
+def remove_tc_format(timecode):
+    new_timecode = timecode.replace(':', '')
+    return(int(new_timecode))
+    
 
 # Adds two timecodes together.
 def tc_add(tc_in_1, tc_in_2, fps):
@@ -211,3 +217,6 @@ tc_to_frame(1012,24)
 
 tc_duration(1015, 2005, 24)
 tc_duration(2005, 1015, 24)
+frame_to_tc(98430, 24)
+
+type(remove_tc_format(frame_to_tc(98430, 24)))
